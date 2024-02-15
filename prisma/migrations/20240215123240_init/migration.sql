@@ -13,10 +13,10 @@ CREATE TABLE "Product" (
     "name" VARCHAR(255) NOT NULL,
     "price" DECIMAL(9,2) NOT NULL,
     "description" TEXT,
-    "categoryID" INTEGER NOT NULL,
+    "categoryID" INTEGER,
 
     CONSTRAINT "Product_pkey" PRIMARY KEY ("id")
 );
 
 -- AddForeignKey
-ALTER TABLE "Product" ADD CONSTRAINT "Product_categoryID_fkey" FOREIGN KEY ("categoryID") REFERENCES "Category"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Product" ADD CONSTRAINT "Product_categoryID_fkey" FOREIGN KEY ("categoryID") REFERENCES "Category"("id") ON DELETE SET NULL ON UPDATE CASCADE;

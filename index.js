@@ -46,7 +46,7 @@ app.post("/products", async(req, res) =>{
       name,
       price,
       description,
-      categoryID
+      categoryID: parseInt(categoryID)
     }
   })
 

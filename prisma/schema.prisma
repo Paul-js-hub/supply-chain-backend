@@ -10,20 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Post {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  title     String   @db.VarChar(255)
-  content   String?
-  published Boolean  @default(false)
-}
-
-model Profile {
-  id  Int     @id @default(autoincrement())
-  bio String?
-}
-
 model Category {
   id          Int       @id @default(autoincrement())
   name        String    @db.VarChar(255)
@@ -37,6 +23,6 @@ model Product {
   price       Decimal  @db.Decimal(9, 2)
   description String?
   //a category field that references a Category model
-  category    Category @relation(fields: [categoryID], references: [id])
-  categoryID  Int
+  category    Category? @relation(fields: [categoryID], references: [id])
+  categoryID  Int?
 }
