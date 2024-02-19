@@ -23,6 +23,6 @@ model Product {
   price       Decimal  @db.Decimal(9, 2)
   description String?
   //a category field that references a Category model
-  category    Category? @relation(fields: [categoryID], references: [id])
-  categoryID  Int?
+  category    Category @relation(fields: [categoryID], references: [id])
+  categoryID  Int
 }
