@@ -22,7 +22,8 @@ model Product {
   name        String   @db.VarChar(255)
   price       Decimal  @db.Decimal(9, 2)
   description String?
-  //a category field that references a Category model
-  category    Category @relation(fields: [categoryID], references: [id])
+  //a category field that references a Category model,
+  //deleting the Category record will also delete all related Product records 
+  category    Category @relation(fields: [categoryID], references: [id], onDelete: Cascade)
   categoryID  Int
 }
